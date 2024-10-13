@@ -1,0 +1,26 @@
+name: Cache Busting and Deploy
+
+# Trigger the workflow on push to the main branch (or any branch you are using for deployment)
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Cache Busting (Append commit hash to assets)
+      run: |
+        HASH=$(git rev-parse --short HEAD)  # Get the current commit hash
+        sed -i "s/COMMIT_HASH/$HASH/" index.html  # Replace COMMIT_HASH placeholder with actual commit hash
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./  # Directory where your index.html and assets are located
