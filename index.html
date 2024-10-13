@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Habits</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=COMMIT_HASH">
+    
+    <!-- Favicon link -->
+    <link rel="icon" type="image/x-icon" href="fav.png">
+
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <!-- Modern Header with Subheading -->
+        <div class="text-center mb-5" id="header">
+            <h1 class="fw-bold text-primary">Mindful Habits</h1>
+            <p class="lead text-muted">Track your habits and live mindfully every day</p>
+        </div>
+
+        <!-- Thirukkural Section with Left Indent for Tamil -->
+        <div class="card mb-4 shadow-sm border-0">
+            <div class="card-body">
+                <blockquote class="blockquote">
+                    <!-- Left indented Tamil text -->
+                    <p id="thirukkural" class="mb-2 left-indented thirukkural-text">தெய்வத்தான் ஆகா தெனினும் முயற்சிதன்<br>மெய்வருத்தக் கூலி தரும்</p>
+                    <!-- "Even if fate is against you, persistent effort will yield its reward." -->
+                    <footer class="blockquote-footer left-indented text-muted">
+                        <br>
+                        <cite title="Thirukkural, Kural 619">திருக்குறள், 619</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- User Input Form wrapped in a card -->
+        <div id="userForm" class="card shadow-sm border-0 mb-4">
+            <div class="card-body p-4">
+                <h3 class="mb-4">Get Started</h3>
+                <form id="setupForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="challengeDuration" class="form-label">Challenge Duration (days)</label>
+                        <input type="number" class="form-control form-control-lg" id="challengeDuration" placeholder="Enter days" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="currentDayInput" class="form-label">Current Challenge Day</label>
+                        <input type="number" id="currentDayInput" class="form-control form-control-lg" min="1" placeholder="Day" required>
+                    </div>
+                    <div id="habitInputs">
+                        <h4 class="mt-3 mb-2">Add Habits</h4>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-lg" onclick="addHabitInput()">+ Add Habit</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Start Challenge</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Habit Tracker Dashboard -->
+        <div id="habitTracker" class="card shadow-sm border-0 d-none">
+            <div class="card-body p-4">
+                <h3 class="mb-4" id="welcomeUser"></h3>
+                <h5 id="challengeInfo"></h5>
+                <div id="currentDateInfo" class="mt-3 text-muted"></div>
+                <div id="habitList" class="my-4"></div>
+
+                <!-- WhatsApp Preview Section -->
+                <h4 class="mt-4">WhatsApp Message Preview:</h4>
+                <pre id="whatsappPreview" class="p-3 bg-dark text-light rounded"></pre>
+
+                <!-- Buttons Section -->
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <button type="button" class="btn btn-success btn-lg" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg" onclick="exportData()">Export Data</button>
+                    <input type="file" class="form-control mt-3" id="importFile" accept=".json" onchange="importData(event)">
+                    <button type="button" class="btn btn-danger btn-lg" onclick="confirmReset()">Reset Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle Switch at the bottom -->
+    <div class="container text-center mt-5">
+        <div class="custom-toggle">
+            <input type="checkbox" id="darkModeToggle">
+            <label for="darkModeToggle" class="toggle-label">
+                <span class="icon-moon">🌙</span>
+                <span class="icon-sun">☀️</span>
+            </label>
+        </div>
+    </div>
+
+    <script src="script.js?v=COMMIT_HASH"></script>
+</body>
+</html>

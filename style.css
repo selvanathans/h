@@ -1,0 +1,235 @@
+/* CSS Variables for Dark and Light Mode */
+:root {
+    --bg-color: #f7f9fc;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --card-border: #e0e0e0;
+    --btn-bg: #007bff;
+    --btn-text: #fff;
+    --btn-outline-text: #007bff;
+    --btn-border: #007bff;
+    --header-color: #333;
+    --title-color: #3a4ef1;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --card-border: #333;
+    --btn-bg: #1a73e8;
+    --btn-text: #ffffff;
+    --btn-outline-text: #1a73e8;
+    --btn-border: #1a73e8;
+    --header-color: #e0e0e0;
+    --title-color: #1a73e8;
+}
+
+/* Apply variables throughout */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+#header {
+    color: var(--header-color);
+}
+
+#header h1 {
+    color: var(--title-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+/* Ensure form inputs reflect dark mode */
+input, select, textarea {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+}
+
+button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: 1px solid var(--btn-border);
+}
+
+button:hover {
+    background-color: var(--btn-border);
+    color: var(--btn-text);
+}
+
+/* Add Habit button (outline style) */
+button.btn-outline-primary {
+    background-color: transparent;
+    color: var(--btn-outline-text);
+    border: 1px solid var(--btn-outline-text);
+}
+
+button.btn-outline-primary:hover {
+    background-color: var(--btn-outline-text);
+    color: var(--btn-text);
+}
+
+blockquote {
+    color: var(--text-color);
+}
+
+/* WhatsApp preview styling in dark mode */
+#whatsappPreview {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+}
+
+/* Dark Mode specific styles for buttons */
+body.dark-mode button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: 1px solid var(--btn-border);
+}
+
+body.dark-mode button:hover {
+    background-color: var(--btn-border);
+    color: var(--btn-text);
+}
+
+/* Dark mode style for outline button */
+body.dark-mode button.btn-outline-primary {
+    color: var(--btn-outline-text);
+    border: 1px solid var(--btn-outline-text);
+}
+
+body.dark-mode button.btn-outline-primary:hover {
+    background-color: var(--btn-outline-text);
+    color: var(--btn-text);
+}
+
+/* Rest of the dark mode styling */
+
+/* Custom Dark Mode Toggle */
+.custom-toggle {
+    display: inline-block;
+    position: relative;
+}
+
+.custom-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.toggle-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    background-color: var(--card-border);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.toggle-label::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .toggle-label::before {
+    transform: translateX(30px);
+    background-color: var(--bg-color);
+}
+
+/* Sun and Moon Icons */
+.icon-sun, .icon-moon {
+    font-size: 1.2rem;
+}
+
+.icon-moon {
+    color: #333;
+}
+
+.icon-sun {
+    color: #f39c12;
+    display: none;
+}
+
+input[type="checkbox"]:checked + .toggle-label .icon-moon {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .toggle-label .icon-sun {
+    display: inline;
+}
+
+/* Adjustment for toggle position */
+.custom-toggle {
+    margin-top: 20px;
+}
+
+/* Ensure pre-line break and indentation for the Thirukkural */
+.thirukkural-text {
+    white-space: pre-wrap; /* Maintain formatting with breaks */
+    font-size: 1.2rem; /* Adjust font size for readability */
+    line-height: 1.6; /* Ensure proper line height */
+}
+
+/* Ensure mobile responsiveness */
+@media (max-width: 768px) {
+    .thirukkural-text, footer cite  {
+        font-size: 0.75rem; /* Adjust font size for mobile */
+    }
+}
+
+.toggle-label {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+input[type="checkbox"]:checked + .toggle-label {
+    background-color: #444; /* Darker background for better contrast in dark mode */
+}
+
+/* Apply dark mode for all interactive elements like form, buttons, and cards */
+body.dark-mode input, 
+body.dark-mode select, 
+body.dark-mode textarea,
+body.dark-mode button, 
+body.dark-mode .card, 
+body.dark-mode #whatsappPreview, 
+body.dark-mode blockquote {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+/* Apply consistent dark mode styling to headings and labels */
+body.dark-mode h1, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode label {
+    color: var(--text-color);
+}
+
+body.dark-mode .text-primary {
+    color: #1a73e8; /* Lighter shade for dark mode */
+}
+
+/* Existing CSS... */
+
+button.btn-danger {
+    margin-top: 10px;
+}
+
+/* Additional dark mode, transitions and layout adjustments remain unchanged. */
